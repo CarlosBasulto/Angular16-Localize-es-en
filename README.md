@@ -41,6 +41,64 @@ Añadimos los idiomas:
                 "en": {
                   "localize": ["en-US"]
                 }
+				
+				
+				
+
+### Uso del etiquetado i18n
+
+**Uso Básico del Atributo i18n
+**
+Puedes añadir el atributo i18n a cualquier etiqueta HTML para marcar el contenido que se necesita traducir. Por ejemplo:
+
+    <div i18n>Hola mundo</div>
+
+**Traducción de Atributos
+**
+Si necesitas traducir atributos, como el placeholder de un input o el title de un elemento, puedes hacerlo de la siguiente manera:
+
+    <input i18n-placeholder placeholder="Escribe aquí" />
+
+
+**Agregar Descripciones y Significados
+**
+Para ayudar a los traductores, puedes añadir una descripción o un significado a tus textos. Por ejemplo:
+
+    <div i18n="@@saludo">Hola</div>    
+    
+
+**Plurales y Selecciones
+**
+Angular también soporta la pluralización y la selección para diferentes opciones de idiomas. Por ejemplo, para manejar diferentes formas plurales:
+
+    <div i18n>Te quedan {count, plural, =0 {ningún mensaje} =1 {un mensaje} other {{count} mensajes}}</div>
+
+
+**Etiquetas Anidadas
+**
+Si tienes etiquetas anidadas y solo quieres traducir una parte del contenido, puedes aplicar i18n a la etiqueta específica:
+
+    <div>
+      Este es un <span i18n>texto importante</span> en la oración.
+    </div>
+
+
+**Uso de ng-container para Agrupar Textos
+**
+Si necesitas agrupar varios elementos para una traducción única sin afectar el layout, puedes usar ng-container:
+
+    <ng-container i18n>
+      <div>Primera parte del mensaje.</div>
+      <div>Segunda parte del mensaje.</div>
+    </ng-container>
+    
+
+### Extraer los Textos para Traducción
+
+Una vez que hayas marcado tus textos con i18n, puedes ejecutar el comando de Angular para extraer estos textos y generar archivos de traducción:
+
+`ng extract-i18n --output-path src/locale
+`
 
 ## Cuales son las ventajas de usar Localize en Angular
 
